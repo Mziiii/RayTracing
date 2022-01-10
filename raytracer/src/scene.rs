@@ -275,10 +275,21 @@ pub fn pic() -> HittableList {
     // let dark = Lambertian::new(SolidColor::new_with_color(Color::new(0.34, 0.33, 0.64)));
     // let purple = Lambertian::new(SolidColor::new_with_color(Color::new(0.54, 0.33, 0.63)));
     let pink = Lambertian::new(SolidColor::new_with_color(Color::new(0.99, 0.125, 0.47)));
+    let sky_blue = Lambertian::new(SolidColor::new_with_color(Color::new(0.255, 0.41, 0.99)));
     let light_blue = Lambertian::new(SolidColor::new_with_color(Color::new(0.27, 0.04, 0.83)));
     let light = DiffuseLight::new(SolidColor::new_with_color(Color::new(15.0, 15.0, 15.0)));
 
-    let back = Lambertian::new(ImageTexture::new("background.jpg"));
+    let sun = Lambertian::new(ImageTexture::new("sun.jpg"));
+    // let mercury = Lambertian::new(ImageTexture::new("mercury.jpg"));
+    let venus = Lambertian::new(ImageTexture::new("venus.jpg"));
+    let earth = Lambertian::new(ImageTexture::new("earthmap.jpg"));
+    let mars = Lambertian::new(ImageTexture::new("mars.jpg"));
+    let jupiter = Lambertian::new(ImageTexture::new("jupiter.jpg"));
+    let saturn = Lambertian::new(ImageTexture::new("saturn.jpg"));
+    // let uranus = Lambertian::new(ImageTexture::new("uranus.jpg"));
+    // let neptune = Lambertian::new(ImageTexture::new("neptune.jpg"));
+
+    let back = Lambertian::new(ImageTexture::new("back.jpg"));
     let pink_ = Metal::new(Color::new(0.99, 0.125, 0.47), 0.5);
     let blue_ = Metal::new(Color::new(0.27, 0.04, 0.83), 0.5);
     objects.add(Arc::new(YZRect::new(
@@ -342,6 +353,142 @@ pub fn pic() -> HittableList {
         back.clone(),
     )));
 
+    objects.add(Arc::new(Sphere::new(
+        &Point3::new(320.0, 200.0, 320.0),
+        133.3,
+        sun,
+    )));
+    objects.add(Arc::new(Sphere::new(
+        &Point3::new(308.8, 200.0, 331.2),
+        6.67,
+        pink,
+    )));
+    objects.add(Arc::new(Sphere::new(
+        &Point3::new(352.0, 200.0, 32.0),
+        16.0,
+        venus,
+    )));
+    objects.add(Arc::new(Sphere::new(
+        &Point3::new(353.6, 200.0, 353.6),
+        20.0,
+        earth,
+    )));
+    objects.add(Arc::new(Sphere::new(
+        &Point3::new(320.0, 200.0, 260.0),
+        12.5,
+        mars,
+    )));
+    objects.add(Arc::new(Sphere::new(
+        &Point3::new(208.0, 200.0, 260.0),
+        60.0,
+        jupiter,
+    )));
+    objects.add(Arc::new(Sphere::new(
+        &Point3::new(320.0, 200.0, 560.0),
+        53.0,
+        saturn,
+    )));
+    objects.add(Arc::new(Sphere::new(
+        &Point3::new(572.0, 200.0, 68.0),
+        33.3,
+        sky_blue,
+    )));
+    objects.add(Arc::new(Sphere::new(
+        &Point3::new(0.0, 200.0, 80.0),
+        32.0,
+        light_blue,
+    )));
+
+    let mut boxes = HittableList::new();
+    let white = Lambertian::new(SolidColor::new_with_color(Color::new(0.99, 0.99, 0.99)));
+    let radius = 16.0;
+    let num = radius as usize * 4;
+    let unit_theta = 2.0 * PI / num as f32;
+    for i in 0..num {
+        let x = (i as f32 * unit_theta).cos() * radius + 320.0;
+        let z = (i as f32 * unit_theta).sin() * radius + 320.0;
+        let sphere: Arc<dyn Hittable> =
+            Arc::new(Sphere::new(&Point3::new(x, 400.0, z), 1.0, white.clone()));
+        objects.add(sphere);
+    }
+
+    let radius = 32.0;
+    let num = radius as usize * 4;
+    let unit_theta = 2.0 * PI / num as f32;
+    for i in 0..num {
+        let x = (i as f32 * unit_theta).cos() * radius + 320.0;
+        let z = (i as f32 * unit_theta).sin() * radius + 320.0;
+        let sphere: Arc<dyn Hittable> =
+            Arc::new(Sphere::new(&Point3::new(x, 400.0, z), 1.0, white.clone()));
+        objects.add(sphere);
+    }
+
+    let radius = 48.0;
+    let num = radius as usize * 4;
+    let unit_theta = 2.0 * PI / num as f32;
+    for i in 0..num {
+        let x = (i as f32 * unit_theta).cos() * radius + 320.0;
+        let z = (i as f32 * unit_theta).sin() * radius + 320.0;
+        let sphere: Arc<dyn Hittable> =
+            Arc::new(Sphere::new(&Point3::new(x, 400.0, z), 1.0, white.clone()));
+        objects.add(sphere);
+    }
+
+    let radius = 60.0;
+    let num = radius as usize * 4;
+    let unit_theta = 2.0 * PI / num as f32;
+    for i in 0..num {
+        let x = (i as f32 * unit_theta).cos() * radius + 320.0;
+        let z = (i as f32 * unit_theta).sin() * radius + 320.0;
+        let sphere: Arc<dyn Hittable> =
+            Arc::new(Sphere::new(&Point3::new(x, 400.0, z), 1.0, white.clone()));
+        objects.add(sphere);
+    }
+
+    let radius = 160.0;
+    let num = radius as usize * 4;
+    let unit_theta = 2.0 * PI / num as f32;
+    for i in 0..num {
+        let x = (i as f32 * unit_theta).cos() * radius + 320.0;
+        let z = (i as f32 * unit_theta).sin() * radius + 320.0;
+        let sphere: Arc<dyn Hittable> =
+            Arc::new(Sphere::new(&Point3::new(x, 400.0, z), 1.0, white.clone()));
+        objects.add(sphere);
+    }
+
+    let radius = 240.0;
+    let num = radius as usize * 4;
+    let unit_theta = 2.0 * PI / num as f32;
+    for i in 0..num {
+        let x = (i as f32 * unit_theta).cos() * radius + 320.0;
+        let z = (i as f32 * unit_theta).sin() * radius + 320.0;
+        let sphere: Arc<dyn Hittable> =
+            Arc::new(Sphere::new(&Point3::new(x, 400.0, z), 1.0, white.clone()));
+        objects.add(sphere);
+    }
+
+    let radius = 360.0;
+    let num = radius as usize * 4;
+    let unit_theta = 2.0 * PI / num as f32;
+    for i in 0..num {
+        let x = (i as f32 * unit_theta).cos() * radius + 320.0;
+        let z = (i as f32 * unit_theta).sin() * radius + 320.0;
+        let sphere: Arc<dyn Hittable> =
+            Arc::new(Sphere::new(&Point3::new(x, 400.0, z), 1.0, white.clone()));
+        objects.add(sphere);
+    }
+
+    let radius = 400.0;
+    let num = radius as usize * 4;
+    let unit_theta = 2.0 * PI / num as f32;
+    for i in 0..num {
+        let x = (i as f32 * unit_theta).cos() * radius + 320.0;
+        let z = (i as f32 * unit_theta).sin() * radius + 320.0;
+        let sphere: Arc<dyn Hittable> =
+            Arc::new(Sphere::new(&Point3::new(x, 400.0, z), 1.0, white.clone()));
+        objects.add(sphere);
+    }
+
     // for i in 0..20 {
     //     let shadow = Sphere::new(
     //         &Point3::new(278.0, 590.0 - i as f32 * 30.0, 280.0),
@@ -391,48 +538,48 @@ pub fn pic() -> HittableList {
     // }
 
     let mut boxes1 = HittableList::new();
-    const BOXES_PER_SIDE: u16 = 10;
-    for i in 0..BOXES_PER_SIDE {
-        for j in 0..BOXES_PER_SIDE {
-            let w = 55.0;
-            let y0 = 0.0 + i as f32 * w;
-            let z0 = 0.0 + j as f32 * w;
-            let x0 = 0.0;
-            let y1 = y0 + w;
-            let x1 = random_f_m(11.0, 51.0);
-            let z1 = z0 + w;
+    // const BOXES_PER_SIDE: u16 = 10;
+    // for i in 0..BOXES_PER_SIDE {
+    //     for j in 0..BOXES_PER_SIDE {
+    //         let w = 55.0;
+    //         let y0 = 0.0 + i as f32 * w;
+    //         let z0 = 0.0 + j as f32 * w;
+    //         let x0 = 0.0;
+    //         let y1 = y0 + w;
+    //         let x1 = random_f_m(11.0, 51.0);
+    //         let z1 = z0 + w;
 
-            let box_: Arc<dyn Hittable> = Arc::new(Box::new(
-                Point3::new(x0, y0, z0),
-                Point3::new(x1, y1, z1),
-                blue_.clone(),
-            ));
+    //         let box_: Arc<dyn Hittable> = Arc::new(Box::new(
+    //             Point3::new(x0, y0, z0),
+    //             Point3::new(x1, y1, z1),
+    //             blue_.clone(),
+    //         ));
 
-            boxes1.add(box_);
-        }
-    }
-    objects.add(Arc::new(boxes1));
+    //         boxes1.add(box_);
+    //     }
+    // }
+    // objects.add(Arc::new(boxes1));
 
-    let mut boxes1 = HittableList::new();
-    for i in 0..BOXES_PER_SIDE {
-        for j in 0..BOXES_PER_SIDE {
-            let w = 55.0;
-            let y0 = 0.0 + i as f32 * w;
-            let z0 = 0.0 + j as f32 * w;
-            let x1 = 554.0;
-            let y1 = y0 + w;
-            let x0 = x1 - random_f_m(11.0, 51.0);
-            let z1 = z0 + w;
+    // let mut boxes1 = HittableList::new();
+    // for i in 0..BOXES_PER_SIDE {
+    //     for j in 0..BOXES_PER_SIDE {
+    //         let w = 55.0;
+    //         let y0 = 0.0 + i as f32 * w;
+    //         let z0 = 0.0 + j as f32 * w;
+    //         let x1 = 554.0;
+    //         let y1 = y0 + w;
+    //         let x0 = x1 - random_f_m(11.0, 51.0);
+    //         let z1 = z0 + w;
 
-            let box_: Arc<dyn Hittable> = Arc::new(Box::new(
-                Point3::new(x0, y0, z0),
-                Point3::new(x1, y1, z1),
-                pink_.clone(),
-            ));
+    //         let box_: Arc<dyn Hittable> = Arc::new(Box::new(
+    //             Point3::new(x0, y0, z0),
+    //             Point3::new(x1, y1, z1),
+    //             pink_.clone(),
+    //         ));
 
-            boxes1.add(box_);
-        }
-    }
+    //         boxes1.add(box_);
+    //     }
+    // }
     objects.add(Arc::new(boxes1));
 
     objects.add(Arc::new(MovingSphere::new(
