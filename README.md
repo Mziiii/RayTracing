@@ -1,4 +1,4 @@
-
+![image](https://github.com/Mziiii/RayTracing/blob/master/pictures/pic1.png)
 
 # 光线追踪 RayTracing
 
