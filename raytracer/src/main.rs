@@ -43,7 +43,7 @@ use crate::scene::*;
 
 const IMAGE_WIDTH: u32 = 400;
 const ASPECT_RATIO: f32 = 1.0;
-const SAMPLES_PER_PIXEL: u16 = 400;
+const SAMPLES_PER_PIXEL: u16 = 100;
 const MAX_DEPTH: u16 = 50;
 
 fn main() {
