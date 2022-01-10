@@ -38,8 +38,6 @@ use crate::objects::material::Lambertian;
 use crate::objects::material::Material;
 use crate::objects::sphere::Sphere;
 use crate::objects::texture::SolidColor;
-use crate::objects::texture::ImageTexture;
-use crate::objects::*;
 use crate::scene::*;
 
 const IMAGE_WIDTH: u32 = 40;
@@ -162,7 +160,6 @@ fn main() {
 
     let mut img: RgbImage = ImageBuffer::new(IMAGE_WIDTH, IMAGE_HEIGHT);
     let bar = ProgressBar::new(num_jobs as u64);
-    let back = Lambertian::new(ImageTexture::new("back.jpg"));
 
 
     for i in 0..num_jobs {
