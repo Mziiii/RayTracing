@@ -43,8 +43,8 @@ use crate::scene::*;
 
 const IMAGE_WIDTH: u32 = 400;
 const ASPECT_RATIO: f32 = 1.0;
-const SAMPLES_PER_PIXEL: u16 = 100;
-const MAX_DEPTH: u16 = 10;
+const SAMPLES_PER_PIXEL: u16 = 400;
+const MAX_DEPTH: u16 = 20;
 
 fn main() {
     const IMAGE_HEIGHT: u32 = (IMAGE_WIDTH as f32 / ASPECT_RATIO) as u32;
