@@ -693,10 +693,10 @@ pub fn solar_system() -> HittableList {
     let neptune = Lambertian::new(ImageTexture::new("neptune.jpg"));
 
     objects.add(Arc::new(XYRect::new(
-        -2000.0,
-        2000.0,
-        -2000.0,
-        2000.0,
+        -1200.0,
+        1200.0,
+        -1200.0,
+        1200.0,
         1200.0,
         background.clone(),
     )));
@@ -851,33 +851,33 @@ pub fn solar_system() -> HittableList {
     // let p = BvhNode::new_with_list(&mut boxes, 0., 0.);
     // objects.add(Arc::new(p));
 
-    let mut boxes2 = HittableList::new();
-    let ring1 = Lambertian::new(ImageTexture::new("ring.jpeg"));
-    let ring2 = Lambertian::new(ImageTexture::new("saturn.jpg"));
-    const NS: usize = 10000;
-    for j in 0..NS {
-        let sphere: Arc<dyn Hittable> = Arc::new(Sphere::new(
-            &(Point3::new(0.0, 400.0, 600.0)
-                + random_in_unit_disk().unit() * 110.0 * random_f_m(0.8, 1.)),
-            1.0,
-            ring1.clone(),
-        ));
-        objects.add(sphere);
-        let sphere: Arc<dyn Hittable> = Arc::new(Sphere::new(
-            &(Point3::new(0.0, 400.0, 600.0)
-                + random_in_unit_disk().unit() * 100.0 * random_f_m(0.7, 1.)),
-            1.0,
-            ring2.clone(),
-        ));
-        objects.add(sphere);
-        let sphere: Arc<dyn Hittable> = Arc::new(Sphere::new(
-            &(Point3::new(0.0, 400.0, 600.0)
-                + random_in_unit_disk().unit() * 90.0 * random_f_m(0.8, 1.)),
-            1.0,
-            ring1.clone(),
-        ));
-        objects.add(sphere);
-    }
+    // let mut boxes2 = HittableList::new();
+    // let ring1 = Lambertian::new(ImageTexture::new("ring.jpeg"));
+    // let ring2 = Lambertian::new(ImageTexture::new("saturn.jpg"));
+    // const NS: usize = 10000;
+    // for j in 0..NS {
+    //     let sphere: Arc<dyn Hittable> = Arc::new(Sphere::new(
+    //         &(Point3::new(0.0, 400.0, 600.0)
+    //             + random_in_unit_disk().unit() * 110.0 * random_f_m(0.8, 1.)),
+    //         1.0,
+    //         ring1.clone(),
+    //     ));
+    //     objects.add(sphere);
+    //     let sphere: Arc<dyn Hittable> = Arc::new(Sphere::new(
+    //         &(Point3::new(0.0, 400.0, 600.0)
+    //             + random_in_unit_disk().unit() * 100.0 * random_f_m(0.7, 1.)),
+    //         1.0,
+    //         ring2.clone(),
+    //     ));
+    //     objects.add(sphere);
+    //     let sphere: Arc<dyn Hittable> = Arc::new(Sphere::new(
+    //         &(Point3::new(0.0, 400.0, 600.0)
+    //             + random_in_unit_disk().unit() * 90.0 * random_f_m(0.8, 1.)),
+    //         1.0,
+    //         ring1.clone(),
+    //     ));
+    //     objects.add(sphere);
+    // }
     // objects.add(Arc::new(BvhNode::new_with_list(&mut boxes2, 0., 0.)));
 
     let mut ret_objects = HittableList::new();
