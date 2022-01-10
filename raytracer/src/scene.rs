@@ -320,12 +320,12 @@ pub fn pic() -> HittableList {
         2.0,
         glass.clone(),
     )));
-    let lamp = Sphere::new(&Point3::new(278.0, 610.0, 280.0), 80.0, light.clone());
-    objects.add(Arc::new(lamp));
-    let lamp = Sphere::new(&Point3::new(128.0, 590.0, 340.0), 50.0, light.clone());
-    objects.add(Arc::new(lamp));
-    let lamp = Sphere::new(&Point3::new(428.0, 590.0, 340.0), 50.0, light.clone());
-    objects.add(Arc::new(lamp));
+    // let lamp = Sphere::new(&Point3::new(278.0, 610.0, 280.0), 80.0, light.clone());
+    // objects.add(Arc::new(lamp));
+    // let lamp = Sphere::new(&Point3::new(128.0, 590.0, 340.0), 50.0, light.clone());
+    // objects.add(Arc::new(lamp));
+    // let lamp = Sphere::new(&Point3::new(428.0, 590.0, 340.0), 50.0, light.clone());
+    // objects.add(Arc::new(lamp));
     objects.add(Arc::new(XZRect::new(
         //lower
         0.0,
@@ -537,7 +537,7 @@ pub fn pic() -> HittableList {
     //     )));
     // }
 
-    let mut boxes1 = HittableList::new();
+    // let mut boxes1 = HittableList::new();
     // const BOXES_PER_SIDE: u16 = 10;
     // for i in 0..BOXES_PER_SIDE {
     //     for j in 0..BOXES_PER_SIDE {
@@ -580,25 +580,25 @@ pub fn pic() -> HittableList {
     //         boxes1.add(box_);
     //     }
     // }
-    objects.add(Arc::new(boxes1));
+    // objects.add(Arc::new(boxes1));
 
-    objects.add(Arc::new(MovingSphere::new(
-        &Point3::new(
-            200.0 + 30.0,
-            100.0 + random_f_m(-1.0, 1.0) * 50.0,
-            200.0 + 30.0,
-        ),
-        &Point3::new(
-            200.0 + 30.0,
-            100.0 + random_f_m(-1.0, 1.0) * 20.0,
-            200.0 + 30.0,
-        ),
-        0.0,
-        1.0,
-        60.0,
-        // glass.clone(),
-        Metal::new(Color::new(0.8, 0.8, 0.9), 1.0),
-    )));
+    // objects.add(Arc::new(MovingSphere::new(
+    //     &Point3::new(
+    //         200.0 + 30.0,
+    //         100.0 + random_f_m(-1.0, 1.0) * 50.0,
+    //         200.0 + 30.0,
+    //     ),
+    //     &Point3::new(
+    //         200.0 + 30.0,
+    //         100.0 + random_f_m(-1.0, 1.0) * 20.0,
+    //         200.0 + 30.0,
+    //     ),
+    //     0.0,
+    //     1.0,
+    //     60.0,
+    //     // glass.clone(),
+    //     Metal::new(Color::new(0.8, 0.8, 0.9), 1.0),
+    // )));
     // for i in 0..20 {
     //     for j in 0..20 {
     //         objects.add(Arc::new(MovingSphere::new(
