@@ -271,14 +271,14 @@ pub fn pic() -> HittableList {
     let ground = Metal::new(Color::new(0.27, 0.04, 0.83), 1.0);
     // let background = Lambertian::new(ImageTexture::new("background.jpg"));
 
-    let background = Lambertian::new(ImageTexture::new("color4.jpg"));
+    // let background = Lambertian::new(ImageTexture::new("color4.jpg"));
     // let dark = Lambertian::new(SolidColor::new_with_color(Color::new(0.34, 0.33, 0.64)));
     // let purple = Lambertian::new(SolidColor::new_with_color(Color::new(0.54, 0.33, 0.63)));
     let pink = Lambertian::new(SolidColor::new_with_color(Color::new(0.99, 0.125, 0.47)));
     let light_blue = Lambertian::new(SolidColor::new_with_color(Color::new(0.27, 0.04, 0.83)));
     let light = DiffuseLight::new(SolidColor::new_with_color(Color::new(15.0, 15.0, 15.0)));
 
-    let back = Lambertian::new(ImageTexture::new("color3.jpg"));
+    let back = Lambertian::new(ImageTexture::new("background.jpg"));
     let pink_ = Metal::new(Color::new(0.99, 0.125, 0.47), 0.5);
     let blue_ = Metal::new(Color::new(0.27, 0.04, 0.83), 0.5);
     objects.add(Arc::new(YZRect::new(
@@ -342,53 +342,53 @@ pub fn pic() -> HittableList {
         back.clone(),
     )));
 
-    for i in 0..20 {
-        let shadow = Sphere::new(
-            &Point3::new(278.0, 590.0 - i as f32 * 30.0, 280.0),
-            60.0 + i as f32 * 2.0,
-            light.clone(),
-        );
-        // objects.add(Arc::new(ConstantMedium::new(
-        //     shadow.clone(),
-        //     0.0014,
-        //     // DiffuseLight::new(SolidColor::new(1.0, 1.0, 1.0)),
-        //     Metal::new(Color::new(0.54,0.83,0.92), 1.5),
-        // )));
-        objects.add(Arc::new(ConstantMedium::new(
-            shadow.clone(),
-            0.0013,
-            DiffuseLight::new(SolidColor::new(1.0, 1.0, 1.0)),
-            // Metal::new(Color::new(0.54,0.83,0.92), 0.5),
-        )));
-    }
+    // for i in 0..20 {
+    //     let shadow = Sphere::new(
+    //         &Point3::new(278.0, 590.0 - i as f32 * 30.0, 280.0),
+    //         60.0 + i as f32 * 2.0,
+    //         light.clone(),
+    //     );
+    //     // objects.add(Arc::new(ConstantMedium::new(
+    //     //     shadow.clone(),
+    //     //     0.0014,
+    //     //     // DiffuseLight::new(SolidColor::new(1.0, 1.0, 1.0)),
+    //     //     Metal::new(Color::new(0.54,0.83,0.92), 1.5),
+    //     // )));
+    //     objects.add(Arc::new(ConstantMedium::new(
+    //         shadow.clone(),
+    //         0.0013,
+    //         DiffuseLight::new(SolidColor::new(1.0, 1.0, 1.0)),
+    //         // Metal::new(Color::new(0.54,0.83,0.92), 0.5),
+    //     )));
+    // }
 
-    for i in 0..20 {
-        let shadow = Sphere::new(
-            &Point3::new(128.0 - i as f32 * 1.0, 590.0 - i as f32 * 30.0, 340.0),
-            40.0 + i as f32 * 1.0,
-            light.clone(),
-        );
-        objects.add(Arc::new(ConstantMedium::new(
-            shadow,
-            0.0013,
-            DiffuseLight::new(SolidColor::new(1.0, 1.0, 1.0)),
-            // Metal::new(Color::new(0.54,0.83,0.92), 0.5),
-        )));
-    }
+    // for i in 0..20 {
+    //     let shadow = Sphere::new(
+    //         &Point3::new(128.0 - i as f32 * 1.0, 590.0 - i as f32 * 30.0, 340.0),
+    //         40.0 + i as f32 * 1.0,
+    //         light.clone(),
+    //     );
+    //     objects.add(Arc::new(ConstantMedium::new(
+    //         shadow,
+    //         0.0013,
+    //         DiffuseLight::new(SolidColor::new(1.0, 1.0, 1.0)),
+    //         // Metal::new(Color::new(0.54,0.83,0.92), 0.5),
+    //     )));
+    // }
 
-    for i in 0..20 {
-        let shadow = Sphere::new(
-            &Point3::new(428.0 + i as f32 * 1.0, 590.0 - i as f32 * 30.0, 340.0),
-            40.0 + i as f32 * 1.0,
-            light.clone(),
-        );
-        objects.add(Arc::new(ConstantMedium::new(
-            shadow,
-            0.001,
-            DiffuseLight::new(SolidColor::new(1.0, 1.0, 1.0)),
-            // Metal::new(Color::new(0.54,0.83,0.92), 0.5),
-        )));
-    }
+    // for i in 0..20 {
+    //     let shadow = Sphere::new(
+    //         &Point3::new(428.0 + i as f32 * 1.0, 590.0 - i as f32 * 30.0, 340.0),
+    //         40.0 + i as f32 * 1.0,
+    //         light.clone(),
+    //     );
+    //     objects.add(Arc::new(ConstantMedium::new(
+    //         shadow,
+    //         0.001,
+    //         DiffuseLight::new(SolidColor::new(1.0, 1.0, 1.0)),
+    //         // Metal::new(Color::new(0.54,0.83,0.92), 0.5),
+    //     )));
+    // }
 
     let mut boxes1 = HittableList::new();
     const BOXES_PER_SIDE: u16 = 10;
