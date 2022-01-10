@@ -117,7 +117,7 @@ fn main() {
             vfov = 40.0
         }
         _ => {
-            world = pic();
+            world = solar_system();
             background = Color::new(0.90, 0.90, 0.97);
             lookfrom = Point3::new(278.0, 278.0, -800.0);
             lookat = Point3::new(278.0, 278.0, 0.0);

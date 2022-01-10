@@ -693,62 +693,73 @@ pub fn solar_system() -> HittableList {
     let neptune = Lambertian::new(ImageTexture::new("neptune.jpg"));
 
     objects.add(Arc::new(XYRect::new(
-        -1200.0,
-        1200.0,
-        -1200.0,
-        1200.0,
-        1200.0,
+        -600.0,
+        600.0,
+        -600.0,
+        600.0,
+        600.0,
         background.clone(),
     )));
 
     objects.add(Arc::new(Sphere::new(
-        &Point3::new(0.0, 400.0, 0.0),
-        140.0,
+        &Point3::new(0.0, 200.0, 0.0),
+        70.0,
         sun,
     )));
     objects.add(Arc::new(Sphere::new(
-        &Point3::new(-28.0, 400.0, 28.0),
-        10.0,
+        &Point3::new(-14.0, 200.0, 14.0),
+        5.0,
         mercury,
     )));
     objects.add(Arc::new(Sphere::new(
-        &Point3::new(80.0, 400.0, 0.0),
-        38.0,
+        &Point3::new(40.0, 200.0, 0.0),
+        19.0,
         venus,
     )));
     objects.add(Arc::new(Sphere::new(
-        &Point3::new(84.0, 400.0, 84.0),
-        40.0,
+        &Point3::new(42.0, 200.0, 42.0),
+        20.0,
         earth,
     )));
     objects.add(Arc::new(Sphere::new(
-        &Point3::new(150.0, 400.0, 150.0),
-        25.0,
+        &Point3::new(75.0, 200.0, 75.0),
+        12.5,
         mars,
     )));
     objects.add(Arc::new(Sphere::new(
-        &Point3::new(-280.0, 400.0, -280.0),
-        80.0,
+        &Point3::new(-140.0, 200.0, -140.0),
+        40.0,
         jupiter,
     )));
     objects.add(Arc::new(Sphere::new(
-        &Point3::new(84.0, 400.0, 84.0),
-        66.0,
+        &Point3::new(42.0, 200.0, 42.0),
+        33.0,
         saturn,
     )));
     objects.add(Arc::new(Sphere::new(
-        &Point3::new(630.0, 400.0, -630.0),
-        50.0,
+        &Point3::new(315.0, 400.0, -315.0),
+        25.0,
         uranus,
     )));
     objects.add(Arc::new(Sphere::new(
-        &Point3::new(-1000.0, 400.0, 0.0),
-        48.0,
+        &Point3::new(-500.0, 200.0, 0.0),
+        24.0,
         neptune,
     )));
 
     let mut boxes = HittableList::new();
     let white = Lambertian::new(SolidColor::new_with_color(Color::new(0.99, 0.99, 0.99)));
+    let radius = 20.0;
+    let num = radius as usize * 4;
+    let unit_theta = 2.0 * PI / num as f32;
+    for i in 0..num {
+        let x = (i as f32 * unit_theta).cos() * radius;
+        let z = (i as f32 * unit_theta).sin() * radius;
+        let sphere: Arc<dyn Hittable> =
+            Arc::new(Sphere::new(&Point3::new(x, 400.0, z), 1.0, white.clone()));
+        objects.add(sphere);
+    }
+
     let radius = 40.0;
     let num = radius as usize * 4;
     let unit_theta = 2.0 * PI / num as f32;
@@ -760,7 +771,7 @@ pub fn solar_system() -> HittableList {
         objects.add(sphere);
     }
 
-    let radius = 80.0;
+    let radius = 60.0;
     let num = radius as usize * 4;
     let unit_theta = 2.0 * PI / num as f32;
     for i in 0..num {
@@ -771,7 +782,7 @@ pub fn solar_system() -> HittableList {
         objects.add(sphere);
     }
 
-    let radius = 120.0;
+    let radius = 75.0;
     let num = radius as usize * 4;
     let unit_theta = 2.0 * PI / num as f32;
     for i in 0..num {
@@ -782,7 +793,7 @@ pub fn solar_system() -> HittableList {
         objects.add(sphere);
     }
 
-    let radius = 150.0;
+    let radius = 200.0;
     let num = radius as usize * 4;
     let unit_theta = 2.0 * PI / num as f32;
     for i in 0..num {
@@ -793,7 +804,7 @@ pub fn solar_system() -> HittableList {
         objects.add(sphere);
     }
 
-    let radius = 150.0;
+    let radius = 300.0;
     let num = radius as usize * 4;
     let unit_theta = 2.0 * PI / num as f32;
     for i in 0..num {
@@ -804,7 +815,7 @@ pub fn solar_system() -> HittableList {
         objects.add(sphere);
     }
 
-    let radius = 400.0;
+    let radius = 450.0;
     let num = radius as usize * 4;
     let unit_theta = 2.0 * PI / num as f32;
     for i in 0..num {
@@ -815,29 +826,7 @@ pub fn solar_system() -> HittableList {
         objects.add(sphere);
     }
 
-    let radius = 600.0;
-    let num = radius as usize * 4;
-    let unit_theta = 2.0 * PI / num as f32;
-    for i in 0..num {
-        let x = (i as f32 * unit_theta).cos() * radius;
-        let z = (i as f32 * unit_theta).sin() * radius;
-        let sphere: Arc<dyn Hittable> =
-            Arc::new(Sphere::new(&Point3::new(x, 400.0, z), 1.0, white.clone()));
-        objects.add(sphere);
-    }
-
-    let radius = 900.0;
-    let num = radius as usize * 4;
-    let unit_theta = 2.0 * PI / num as f32;
-    for i in 0..num {
-        let x = (i as f32 * unit_theta).cos() * radius;
-        let z = (i as f32 * unit_theta).sin() * radius;
-        let sphere: Arc<dyn Hittable> =
-            Arc::new(Sphere::new(&Point3::new(x, 400.0, z), 1.0, white.clone()));
-        objects.add(sphere);
-    }
-
-    let radius = 1000.0;
+    let radius = 500.0;
     let num = radius as usize * 4;
     let unit_theta = 2.0 * PI / num as f32;
     for i in 0..num {
