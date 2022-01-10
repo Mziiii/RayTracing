@@ -619,8 +619,9 @@ pub fn pic() -> HittableList {
     //         )));
     //     }
     // }
-
-    objects
+    let mut ret_objects = HittableList::new();
+    ret_objects.add(Arc::new(BvhNode::new_with_list(&mut objects, 0., 0.)));
+    ret_objects
 }
 
 pub fn cornell_smoke() -> HittableList {
