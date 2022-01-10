@@ -163,7 +163,7 @@ pub fn two_perlin_spheres() -> HittableList {
 
 pub fn earth() -> HittableList {
     let mut objects = HittableList::new();
-    let earth_texture = ImageTexture::new("mars.jpg");
+    let earth_texture = ImageTexture::new("pictures/mars.jpg");
     let earth_surface = Lambertian::new(earth_texture);
     let globe = Arc::new(Sphere::new(&Point3::zero(), 2.0, earth_surface));
 
@@ -269,9 +269,9 @@ pub fn pic() -> HittableList {
     let glass = Dielectric::new(1.5);
     let white = Lambertian::new(SolidColor::new(0.82, 0.71, 0.84));
     let ground = Metal::new(Color::new(0.27, 0.04, 0.83), 1.0);
-    // let background = Lambertian::new(ImageTexture::new("background.jpg"));
+    // let background = Lambertian::new(ImageTexture::new("pictures/background.jpg"));
 
-    // let background = Lambertian::new(ImageTexture::new("color4.jpg"));
+    // let background = Lambertian::new(ImageTexture::new("pictures/color4.jpg"));
     // let dark = Lambertian::new(SolidColor::new_with_color(Color::new(0.34, 0.33, 0.64)));
     // let purple = Lambertian::new(SolidColor::new_with_color(Color::new(0.54, 0.33, 0.63)));
     let pink = Lambertian::new(SolidColor::new_with_color(Color::new(0.99, 0.125, 0.47)));
@@ -279,17 +279,17 @@ pub fn pic() -> HittableList {
     let light_blue = Lambertian::new(SolidColor::new_with_color(Color::new(0.27, 0.04, 0.83)));
     let light = DiffuseLight::new(SolidColor::new_with_color(Color::new(15.0, 15.0, 15.0)));
 
-    let sun = Lambertian::new(ImageTexture::new("sun.jpg"));
-    // let mercury = Lambertian::new(ImageTexture::new("mercury.jpg"));
-    let venus = Lambertian::new(ImageTexture::new("venus.jpg"));
-    let earth = Lambertian::new(ImageTexture::new("earthmap.jpg"));
-    let mars = Lambertian::new(ImageTexture::new("mars.jpg"));
-    let jupiter = Lambertian::new(ImageTexture::new("jupiter.jpg"));
-    let saturn = Lambertian::new(ImageTexture::new("saturn.jpg"));
-    // let uranus = Lambertian::new(ImageTexture::new("uranus.jpg"));
-    // let neptune = Lambertian::new(ImageTexture::new("neptune.jpg"));
+    let sun = Lambertian::new(ImageTexture::new("pictures/sun.jpg"));
+    // let mercury = Lambertian::new(ImageTexture::new("pictures/mercury.jpg"));
+    let venus = Lambertian::new(ImageTexture::new("pictures/venus.jpg"));
+    let earth = Lambertian::new(ImageTexture::new("pictures/earthmap.jpg"));
+    let mars = Lambertian::new(ImageTexture::new("pictures/mars.jpg"));
+    let jupiter = Lambertian::new(ImageTexture::new("pictures/jupiter.jpg"));
+    let saturn = Lambertian::new(ImageTexture::new("pictures/saturn.jpg"));
+    // let uranus = Lambertian::new(ImageTexture::new("pictures/uranus.jpg"));
+    // let neptune = Lambertian::new(ImageTexture::new("pictures/neptune.jpg"));
 
-    let back = Lambertian::new(ImageTexture::new("back.jpg"));
+    let back = Lambertian::new(ImageTexture::new("pictures/back.jpg"));
     let pink_ = Metal::new(Color::new(0.99, 0.125, 0.47), 0.5);
     let blue_ = Metal::new(Color::new(0.27, 0.04, 0.83), 0.5);
     objects.add(Arc::new(YZRect::new(
@@ -790,7 +790,7 @@ pub fn final_scene() -> HittableList {
         Isotropic::new(SolidColor::new_with_color(Color::ones())),
     )));
 
-    let emat = Lambertian::new(ImageTexture::new("earthmap.jpg"));
+    let emat = Lambertian::new(ImageTexture::new("pictures/earthmap.jpg"));
     objects.add(Arc::new(Sphere::new(
         &Point3::new(400.0, 200.0, 400.0),
         100.0,
@@ -829,16 +829,16 @@ pub fn final_scene() -> HittableList {
 
 pub fn solar_system() -> HittableList {
     let mut objects = HittableList::new();
-    let background = Lambertian::new(ImageTexture::new("background.jpg"));
-    let sun = Lambertian::new(ImageTexture::new("sun.jpg"));
-    let mercury = Lambertian::new(ImageTexture::new("mercury.jpg"));
-    let venus = Lambertian::new(ImageTexture::new("venus.jpg"));
-    let earth = Lambertian::new(ImageTexture::new("earthmap.jpg"));
-    let mars = Lambertian::new(ImageTexture::new("mars.jpg"));
-    let jupiter = Lambertian::new(ImageTexture::new("jupiter.jpg"));
-    let saturn = Lambertian::new(ImageTexture::new("saturn.jpg"));
-    let uranus = Lambertian::new(ImageTexture::new("uranus.jpg"));
-    let neptune = Lambertian::new(ImageTexture::new("neptune.jpg"));
+    let background = Lambertian::new(ImageTexture::new("pictures/background.jpg"));
+    let sun = Lambertian::new(ImageTexture::new("pictures/sun.jpg"));
+    let mercury = Lambertian::new(ImageTexture::new("pictures/mercury.jpg"));
+    let venus = Lambertian::new(ImageTexture::new("pictures/venus.jpg"));
+    let earth = Lambertian::new(ImageTexture::new("pictures/earthmap.jpg"));
+    let mars = Lambertian::new(ImageTexture::new("pictures/mars.jpg"));
+    let jupiter = Lambertian::new(ImageTexture::new("pictures/jupiter.jpg"));
+    let saturn = Lambertian::new(ImageTexture::new("pictures/saturn.jpg"));
+    let uranus = Lambertian::new(ImageTexture::new("pictures/uranus.jpg"));
+    let neptune = Lambertian::new(ImageTexture::new("pictures/neptune.jpg"));
 
     objects.add(Arc::new(XYRect::new(
         -600.0,
@@ -990,7 +990,7 @@ pub fn solar_system() -> HittableList {
 
     // let mut boxes2 = HittableList::new();
     // let ring1 = Lambertian::new(ImageTexture::new("ring.jpeg"));
-    // let ring2 = Lambertian::new(ImageTexture::new("saturn.jpg"));
+    // let ring2 = Lambertian::new(ImageTexture::new("pictures/saturn.jpg"));
     // const NS: usize = 10000;
     // for j in 0..NS {
     //     let sphere: Arc<dyn Hittable> = Arc::new(Sphere::new(
