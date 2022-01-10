@@ -292,25 +292,25 @@ pub fn pic() -> HittableList {
     let back = Lambertian::new(ImageTexture::new("back.jpg"));
     let pink_ = Metal::new(Color::new(0.99, 0.125, 0.47), 0.5);
     let blue_ = Metal::new(Color::new(0.27, 0.04, 0.83), 0.5);
-    objects.add(Arc::new(YZRect::new(
-        //left
-        0.0,
-        555.0,
-        0.0,
-        555.0,
-        555.0,
-        pink_.clone(),
-    )));
+    // objects.add(Arc::new(YZRect::new(
+    //     //left
+    //     0.0,
+    //     555.0,
+    //     0.0,
+    //     555.0,
+    //     555.0,
+    //     pink_.clone(),
+    // )));
 
-    objects.add(Arc::new(YZRect::new(
-        //right
-        0.0,
-        555.0,
-        0.0,
-        555.0,
-        0.0,
-        blue_.clone(),
-    )));
+    // objects.add(Arc::new(YZRect::new(
+    //     //right
+    //     0.0,
+    //     555.0,
+    //     0.0,
+    //     555.0,
+    //     0.0,
+    //     blue_.clone(),
+    // )));
     objects.add(Arc::new(YZRect::new(
         //right
         0.0,
@@ -355,7 +355,7 @@ pub fn pic() -> HittableList {
 
     objects.add(Arc::new(Sphere::new(
         &Point3::new(320.0, 200.0, 320.0),
-        133.3,
+        33.3,
         sun,
     )));
     objects.add(Arc::new(Sphere::new(
@@ -408,7 +408,7 @@ pub fn pic() -> HittableList {
         let x = (i as f32 * unit_theta).cos() * radius + 320.0;
         let z = (i as f32 * unit_theta).sin() * radius + 320.0;
         let sphere: Arc<dyn Hittable> =
-            Arc::new(Sphere::new(&Point3::new(x, 400.0, z), 1.0, white.clone()));
+            Arc::new(Sphere::new(&Point3::new(x, 200.0, z), 1.0, white.clone()));
         objects.add(sphere);
     }
 
@@ -419,7 +419,7 @@ pub fn pic() -> HittableList {
         let x = (i as f32 * unit_theta).cos() * radius + 320.0;
         let z = (i as f32 * unit_theta).sin() * radius + 320.0;
         let sphere: Arc<dyn Hittable> =
-            Arc::new(Sphere::new(&Point3::new(x, 400.0, z), 1.0, white.clone()));
+            Arc::new(Sphere::new(&Point3::new(x, 200.0, z), 1.0, white.clone()));
         objects.add(sphere);
     }
 
@@ -430,7 +430,7 @@ pub fn pic() -> HittableList {
         let x = (i as f32 * unit_theta).cos() * radius + 320.0;
         let z = (i as f32 * unit_theta).sin() * radius + 320.0;
         let sphere: Arc<dyn Hittable> =
-            Arc::new(Sphere::new(&Point3::new(x, 400.0, z), 1.0, white.clone()));
+            Arc::new(Sphere::new(&Point3::new(x, 200.0, z), 1.0, white.clone()));
         objects.add(sphere);
     }
 
@@ -441,7 +441,7 @@ pub fn pic() -> HittableList {
         let x = (i as f32 * unit_theta).cos() * radius + 320.0;
         let z = (i as f32 * unit_theta).sin() * radius + 320.0;
         let sphere: Arc<dyn Hittable> =
-            Arc::new(Sphere::new(&Point3::new(x, 400.0, z), 1.0, white.clone()));
+            Arc::new(Sphere::new(&Point3::new(x, 200.0, z), 1.0, white.clone()));
         objects.add(sphere);
     }
 
@@ -452,7 +452,7 @@ pub fn pic() -> HittableList {
         let x = (i as f32 * unit_theta).cos() * radius + 320.0;
         let z = (i as f32 * unit_theta).sin() * radius + 320.0;
         let sphere: Arc<dyn Hittable> =
-            Arc::new(Sphere::new(&Point3::new(x, 400.0, z), 1.0, white.clone()));
+            Arc::new(Sphere::new(&Point3::new(x, 200.0, z), 1.0, white.clone()));
         objects.add(sphere);
     }
 
@@ -463,7 +463,7 @@ pub fn pic() -> HittableList {
         let x = (i as f32 * unit_theta).cos() * radius + 320.0;
         let z = (i as f32 * unit_theta).sin() * radius + 320.0;
         let sphere: Arc<dyn Hittable> =
-            Arc::new(Sphere::new(&Point3::new(x, 400.0, z), 1.0, white.clone()));
+            Arc::new(Sphere::new(&Point3::new(x, 200.0, z), 1.0, white.clone()));
         objects.add(sphere);
     }
 
@@ -474,7 +474,7 @@ pub fn pic() -> HittableList {
         let x = (i as f32 * unit_theta).cos() * radius + 320.0;
         let z = (i as f32 * unit_theta).sin() * radius + 320.0;
         let sphere: Arc<dyn Hittable> =
-            Arc::new(Sphere::new(&Point3::new(x, 400.0, z), 1.0, white.clone()));
+            Arc::new(Sphere::new(&Point3::new(x, 200.0, z), 1.0, white.clone()));
         objects.add(sphere);
     }
 
@@ -485,7 +485,7 @@ pub fn pic() -> HittableList {
         let x = (i as f32 * unit_theta).cos() * radius + 320.0;
         let z = (i as f32 * unit_theta).sin() * radius + 320.0;
         let sphere: Arc<dyn Hittable> =
-            Arc::new(Sphere::new(&Point3::new(x, 400.0, z), 1.0, white.clone()));
+            Arc::new(Sphere::new(&Point3::new(x, 200.0, z), 1.0, white.clone()));
         objects.add(sphere);
     }
 
